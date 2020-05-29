@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@drawable/permission_round_border"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <TextView
+        android:text="提示"
+        android:textSize="24sp"
+        android:gravity="center"
+        android:paddingTop="5dp"
+        android:paddingLeft="18dp"
+        android:paddingRight="18dp"
+        android:textColor="@android:color/black"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:text="已禁用权限，请手动授予"
+        android:textSize="16sp"
+        android:gravity="center"
+        android:paddingTop="24dp"
+        android:paddingBottom="24dp"
+        android:paddingLeft="18dp"
+        android:paddingRight="18dp"
+        android:textColor="@android:color/black"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <View
+        android:background="@android:color/holo_blue_dark"
+        android:layout_width="match_parent"
+        android:layout_height="1px" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/tv_setting"
+            android:text="设置"
+            android:textSize="14sp"
+            android:gravity="center"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:textColor="@android:color/holo_blue_dark"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+        <View
+            android:background="@android:color/holo_blue_dark"
+            android:layout_width="1px"
+            android:layout_height="match_parent" />
+        <TextView
+            android:id="@+id/tv_cancel"
+            android:text="取消"
+            android:textSize="14sp"
+            android:gravity="center"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:textColor="@android:color/holo_blue_dark"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+</LinearLayout>
