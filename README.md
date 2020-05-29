@@ -2,6 +2,7 @@
 申请权限的依赖库
 
 jitpack的获取地址：
+
 	allprojects {
 		repositories {
 			...
