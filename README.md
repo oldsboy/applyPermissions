@@ -2,8 +2,16 @@
 申请权限的依赖库
 
 jitpack的获取地址：
+	allprojects {
+		repositories {
+			...
+			maven { url 'https://jitpack.io' }
+		}
+	}
 
-implementation 'com.github.oldsboy:applyPermissions:1f43b2e7e3'
+	dependencies {
+	        implementation 'com.github.oldsboy:applyPermissions:Tag'
+	}
 
 使用示例：
 
