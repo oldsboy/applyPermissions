@@ -56,7 +56,7 @@ public class PermissionsUtils {
         return permissionsUtils;
     }
 
-    public void checkPermissions(final Activity activity, String[] permissions, IPermissionsResult permissionsResult) {
+    public boolean checkPermissions(final Activity activity, String[] permissions, IPermissionsResult permissionsResult) {
         //创建监听权限的接口对象
         if (permissionsResult == null) {
             permissionsResult = new PermissionsUtils.IPermissionsResult() {
@@ -76,7 +76,7 @@ public class PermissionsUtils {
 
         if (Build.VERSION.SDK_INT < 23) {//6.0才用动态权限
             permissionsResult.passPermissons();
-            return;
+            return true;
         }
 
         //创建一个mPermissionList，逐个判断哪些权限未授予，未授予的权限存储到mPerrrmissionList中
@@ -91,9 +91,11 @@ public class PermissionsUtils {
         //申请权限
         if (mPermissionList.size() > 0) {//有权限没有通过，需要申请
             ActivityCompat.requestPermissions(activity, permissions, mRequestCode);
+            return false;
         } else {
             //说明权限都已经通过，可以做你想做的事情去
             permissionsResult.passPermissons();
+            return true;
         }
     }
 
