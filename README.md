@@ -11,7 +11,7 @@ jitpack的获取地址：
 	}
 
 	dependencies {
-	        implementation 'com.github.oldsboy:applyPermissions:1f43b2e7e3'
+	        implementation 'com.github.oldsboy:applyPermissions:244e6131ad'
 	}
 
 使用示例：
