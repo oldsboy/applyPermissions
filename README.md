@@ -11,7 +11,7 @@ jitpack的获取地址：
 	}
 
 	dependencies {
-	        implementation 'com.github.oldsboy:applyPermissions:Tag'
+	        implementation 'com.github.oldsboy:applyPermissions:1f43b2e7e3'
 	}
 
 使用示例：
