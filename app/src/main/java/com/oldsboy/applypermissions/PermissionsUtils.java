@@ -75,7 +75,7 @@ public class PermissionsUtils {
         mPermissionsResult = permissionsResult;
 
         if (Build.VERSION.SDK_INT < 23) {//6.0才用动态权限
-            permissionsResult.passPermissons();
+            mPermissionsResult.passPermissons();
             return true;
         }
 
@@ -94,7 +94,7 @@ public class PermissionsUtils {
             return false;
         } else {
             //说明权限都已经通过，可以做你想做的事情去
-            permissionsResult.passPermissons();
+            mPermissionsResult.passPermissons();
             return true;
         }
     }
@@ -107,7 +107,7 @@ public class PermissionsUtils {
         boolean hasPermissionDismiss = false;//有权限没有通过
         if (mRequestCode == requestCode) {
             for (int i = 0; i < grantResults.length; i++) {
-                if (grantResults[i] == -1) {
+                if (grantResults[i] == PackageManager.PERMISSION_DENIED) {
                     hasPermissionDismiss = true;
                 }
             }
@@ -132,7 +132,7 @@ public class PermissionsUtils {
     /**
      * 不再提示权限时的展示对话框
      */
-    Dialog dialog;
+    public Dialog dialog;
     private void showSystemPermissionsSettingDialog(final Activity activity) {
         if (dialog == null) {
             dialog = new Dialog(activity, R.style.MyDialog);
@@ -141,22 +141,22 @@ public class PermissionsUtils {
             dialog.findViewById(R.id.tv_setting).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    cancelPermissionDialog();
-
                     Uri packageURI = Uri.parse("package:" + activity.getPackageName());
                     Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS, packageURI);
                     activity.startActivity(intent);
                     activity.finish();
+
+                    cancelPermissionDialog();
                 }
             });
             dialog.findViewById(R.id.tv_cancel).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     //关闭页面或者做其他操作
-                    cancelPermissionDialog();
                     if (mPermissionsResult != null) {
                         mPermissionsResult.forbitPermissons();
                     }
+                    cancelPermissionDialog();
                 }
             });
             if (dialog.getWindow() != null) {
