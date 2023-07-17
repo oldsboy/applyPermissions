@@ -114,11 +114,10 @@ public class PermissionsUtils {
             //如果有权限没有被允许
             if (hasPermissionDismiss) {
                 if (showSystemSetting) {
-                    showSystemPermissionsSettingDialog(activity);//跳转到系统设置权限页面，或者直接关闭页面，不让他继续访问
-                } else {
                     if (mPermissionsResult != null) {
                         mPermissionsResult.forbitPermissons();
                     }
+                    showSystemPermissionsSettingDialog(activity);//跳转到系统设置权限页面，或者直接关闭页面，不让他继续访问
                 }
             } else {
                 //全部权限通过，可以进行下一步操作。。。
